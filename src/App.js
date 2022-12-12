@@ -1,23 +1,38 @@
-import logo from './logo.svg';
-import './App.css';
+import Signin from "./pages/Signin";
+import Signup from "./pages/Signup";
+import {
+  BrowserRouter as Router,
+  Routes,
+  Route,
+  Navigate,
+  useLocation,
+} from "react-router-dom";
+import Nav from "./components/Nav";
+import Dashboard from "./pages/Dashboard";
+import AddPharamcy from "./pages/AddPharamcy";
+import ForgotPassword from "./pages/ForgotPassword";
 
 function App() {
+  const location = useLocation();
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      {location.pathname === "/signup" ||
+      location.pathname === "/signin" ||
+      location.pathname === "/forgot-password" ? (
+        <></>
+      ) : (
+        // <Nav />
+        <></>
+      )}
+
+      <Routes>
+        <Route path="/signin" element={<Signin />} />
+        <Route path="/signup" element={<Signup />} />
+        <Route path="/dashboard" element={<Dashboard />} />
+        <Route path="/add_pharmacy" element={<AddPharamcy />} />
+        <Route path="/forgot-password" element={<ForgotPassword />} />
+      </Routes>
     </div>
   );
 }
