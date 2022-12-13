@@ -11,6 +11,7 @@ module.exports = {
         "grad-dark": "#1D6B20",
         "btn-green": "#1D6B20",
         "gen-bg": "rgba(76, 185, 80, 0.05)",
+        "bg-light": "#F6FBF6",
       },
     },
   },

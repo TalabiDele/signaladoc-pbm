@@ -357,8 +357,8 @@ export const AuthProvider = ({ children }) => {
 
     if (res.ok) {
       setApproved(true);
-      setMessage(data.message);
       setUser(data.user);
+      setMessage(`Welcome ${data.user.first_name}. Login Successful`);
 
       setTimeout(() => {
         setMessage("");
@@ -366,7 +366,7 @@ export const AuthProvider = ({ children }) => {
       }, 4000);
     } else {
       setError(true);
-      setMessage(data.message);
+      setMessage(data.error);
 
       setTimeout(() => {
         setError(false);

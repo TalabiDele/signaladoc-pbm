@@ -1,9 +1,10 @@
 import React from "react";
+import Dash from "../components/Dash";
 
 const Dashboard = () => {
   return (
-    <div className="bg-gen-bg h-[100vh] overflow-y-scroll">
-      <div>Dashboard</div>
+    <div>
+      <Dash />
     </div>
   );
 };
