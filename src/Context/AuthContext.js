@@ -24,6 +24,7 @@ export const AuthProvider = ({ children }) => {
   const [surnameError, setSurnameError] = useState(false);
   const [passError, setPassError] = useState(false);
   const [isReset, setIsReset] = useState(false);
+  const [userLogged, setUserLogged] = useState();
   // const []
 
   useEffect(() => {}, []);
@@ -123,7 +124,9 @@ export const AuthProvider = ({ children }) => {
     const data = await res.json();
 
     if (res.ok) {
-      setUser(data.user);
+      setUserLogged(data.user);
+      // setUser(data.user);
+      setUserId(data.user.id);
       setApproved(true);
       setIsPharmacy(true);
       setMessage("Account created successfully!");
@@ -391,6 +394,8 @@ export const AuthProvider = ({ children }) => {
 
     console.log(res);
 
+    console.log(data);
+
     if (res.status === 413) {
       setError(true);
       setMessage("File(s) too large!");
@@ -413,10 +418,12 @@ export const AuthProvider = ({ children }) => {
 
     if (data.status === "success") {
       setApproved(true);
+
       setMessage(data.message);
 
       setTimeout(() => {
         setApproved(false);
+        setUser(userLogged);
       }, 4000);
     }
 

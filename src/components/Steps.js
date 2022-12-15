@@ -2,14 +2,8 @@ import React, { useContext, useEffect } from "react";
 import AuthContext from "../Context/AuthContext";
 
 const Steps = () => {
-  const {
-    isEmail,
-    setIsEmail,
-    isCode,
-    setIsCode,
-    isUserDetails,
-    setIsUserDetails,
-  } = useContext(AuthContext);
+  const { isEmail, setIsEmail, isCode, isUserDetails } =
+    useContext(AuthContext);
 
   useEffect(() => {
     setIsEmail(true);

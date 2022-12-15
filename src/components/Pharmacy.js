@@ -1,12 +1,8 @@
 import React, { useContext, useState, useEffect } from "react";
 import AuthContext from "../Context/AuthContext";
 import btnLoader from "../imgs/loading.gif";
-import { Link } from "react-router-dom";
-import AccountNav from "./AccountNav";
-import { Document, Page } from "react-pdf";
 import { AiOutlineCloudUpload } from "react-icons/ai";
 import axios from "axios";
-import { API_URL } from "../Config";
 
 const Pharmacy = () => {
   const [name, setName] = useState("");
@@ -44,6 +40,7 @@ const Pharmacy = () => {
     approved,
     setError,
     setMessage,
+    userId,
   } = useContext(AuthContext);
 
   useEffect(() => {
@@ -105,7 +102,7 @@ const Pharmacy = () => {
     formData.append("pharmacy_license", pharmaLicense);
     formData.append("phone_number", number);
     formData.append("city", city);
-    formData.append("user", user.id);
+    formData.append("user", userId);
 
     if (incorSize > 2000) {
       setIncorError(true);
@@ -163,7 +160,6 @@ const Pharmacy = () => {
 
   return (
     <div className="">
-      {/* <AccountNav /> */}
       <div className="bg-bg-green h-[100vh] ">
         <div className="">
           <h1 className="font-bold text-3xl mt-[2rem] mb-5">

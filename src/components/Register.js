@@ -226,7 +226,7 @@ const Register = () => {
                     <button
                       onClick={(e) => verifyCode(e)}
                       disabled={loading ? true : false}
-                      className={` bg-gradient-to-r from-grad-light to-grad-dark text-white py-5 rounded-xl text-xl active:ring focus:ring reen mt-3 mb-10 p-5 focus:outline-none focus:ring-text-green hover:from-grad-dark hover:to-grad-dark transition-500 transition-all font-bold w-[20rem] w-2/6 mr-10`}
+                      className={` bg-gradient-to-r from-grad-light to-grad-dark text-white py-5 rounded-xl text-xl active:ring focus:ring reen mt-3 mb-10 p-5 focus:outline-none focus:ring-text-green hover:from-grad-dark hover:to-grad-dark transition-500 transition-all font-bold w-[20rem] mr-10`}
                     >
                       {loading ? (
                         <img

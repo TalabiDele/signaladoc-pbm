@@ -13,8 +13,6 @@ import { Link, useLocation } from "react-router-dom";
 const Nav = () => {
   const location = useLocation();
 
-  console.log(location.pathname);
-
   return (
     <div className="fixed right-0 left-0 flex">
       <div className=" bg-white h-[100vh] w-[20rem] pt-2">
