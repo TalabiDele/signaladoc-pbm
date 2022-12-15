@@ -12,6 +12,8 @@ module.exports = {
         "btn-green": "#1D6B20",
         "gen-bg": "rgba(76, 185, 80, 0.05)",
         "bg-light": "#F6FBF6",
+        "text-red": "#EB5757",
+        "text-gray": "#4F4F4F",
       },
     },
   },

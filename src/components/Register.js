@@ -7,10 +7,13 @@ import Steps from "./Steps";
 import btnLoader from "../imgs/loading.gif";
 import VerifyUser from "./VerifyUser";
 import Pharmacy from "./Pharmacy";
+import { RiHeartAddFill } from "react-icons/ri";
 
 const Register = () => {
   const [code, setCode] = useState(null);
   const [password, setPassword] = useState("");
+  const [confirmPassword, setConfirmPassword] = useState("");
+  const [passError, setPassError] = useState(false);
   // const [docs, setDocs] = useState({});
 
   const {
@@ -105,7 +108,16 @@ const Register = () => {
       setMessage("");
     }
 
-    register({ userId, firstName, lastName, number, password });
+    if (password !== confirmPassword) {
+      setPassError(true);
+      setMessage("Passwords do not match!");
+
+      setTimeout(() => {
+        setPassError(false);
+      }, 4000);
+    } else {
+      register({ userId, firstName, lastName, number, password });
+    }
   };
 
   const resendCode = (e) => {
@@ -165,7 +177,10 @@ const Register = () => {
 
               {isEmail && (
                 <form action="" className="grid" onSubmit={verifyEmail}>
-                  <label htmlFor="email">Enter Email for Verification</label>
+                  <div className="flex justify-between text-text-gray">
+                    <label htmlFor="email">Enter Email for Verification</label>
+                    <label htmlFor="email">Pharmacy Owner Information</label>
+                  </div>
                   <input
                     id="email"
                     name="email"
@@ -179,7 +194,7 @@ const Register = () => {
                   </p>
                   <button
                     disabled={loading ? true : false}
-                    className={` bg-gradient-to-r from-grad-light to-grad-dark text-white py-5 rounded-xl text-xl active:ring focus:ring reen mt-3 mb-10 p-5 focus:outline-none focus:ring-text-green hover:from-grad-dark hover:to-grad-dark transition-500 transition-all font-bold`}
+                    className={` bg-gradient-to-r from-grad-light to-grad-dark text-white py-5 rounded-xl text-xl active:ring focus:ring reen mt-3 mb-10 p-5 focus:outline-none focus:ring-text-green hover:from-grad-dark hover:to-grad-dark transition-500 transition-all font-bold w-[20rem]`}
                   >
                     {loading ? (
                       <img
@@ -188,7 +203,7 @@ const Register = () => {
                         className="w-[40px] mx-auto"
                       />
                     ) : (
-                      "Submit"
+                      "Continue"
                     )}
                   </button>
                 </form>
@@ -196,7 +211,9 @@ const Register = () => {
 
               {isCode && (
                 <div action="" className="grid">
-                  <label htmlFor="code">Enter Verification Code</label>
+                  <label className="text-text-gray" htmlFor="code">
+                    Enter Verification Code
+                  </label>
                   <input
                     id="code"
                     name="code"
@@ -209,7 +226,7 @@ const Register = () => {
                     <button
                       onClick={(e) => verifyCode(e)}
                       disabled={loading ? true : false}
-                      className={` bg-gradient-to-r from-grad-light to-grad-dark text-white py-5 rounded-xl text-xl active:ring focus:ring reen mt-3 mb-10 p-5 focus:outline-none focus:ring-text-green hover:from-grad-dark hover:to-grad-dark transition-500 transition-all font-bold w-2/6 mr-10`}
+                      className={` bg-gradient-to-r from-grad-light to-grad-dark text-white py-5 rounded-xl text-xl active:ring focus:ring reen mt-3 mb-10 p-5 focus:outline-none focus:ring-text-green hover:from-grad-dark hover:to-grad-dark transition-500 transition-all font-bold w-[20rem] w-2/6 mr-10`}
                     >
                       {loading ? (
                         <img
@@ -246,7 +263,9 @@ const Register = () => {
                   className={`grid ${isPharmacy && "hidden"}`}
                   onSubmit={registerUser}
                 >
-                  <label htmlFor="lastname">First Name</label>
+                  <label className="text-text-gray" htmlFor="lastname">
+                    First Name
+                  </label>
                   <input
                     id="firstname"
                     name="firstname"
@@ -255,7 +274,9 @@ const Register = () => {
                     onChange={(e) => setFirstName(e.target.value)}
                     className="rounded-lg bg-input-green mt-3 mb-10 p-5 focus:outline-none focus:ring focus:ring-text-green"
                   />
-                  <label htmlFor="lastname">Last Name</label>
+                  <label className="text-text-gray" htmlFor="lastname">
+                    Last Name
+                  </label>
                   <input
                     id="lastname"
                     name="lastname"
@@ -264,7 +285,9 @@ const Register = () => {
                     onChange={(e) => setLastName(e.target.value)}
                     className="rounded-lg bg-input-green mt-3 mb-10 p-5 focus:outline-none focus:ring focus:ring-text-green"
                   />
-                  <label htmlFor="number">Phone Number</label>
+                  <label className="text-text-gray" htmlFor="number">
+                    Phone Number
+                  </label>
                   <input
                     id="number"
                     name="number"
@@ -273,13 +296,41 @@ const Register = () => {
                     onChange={(e) => setNumber(e.target.value)}
                     className="rounded-lg bg-input-green mt-3 mb-10 p-5 focus:outline-none focus:ring focus:ring-text-green"
                   />
-                  <label htmlFor="password">Password</label>
+
+                  {passError && message && (
+                    <div
+                      className="mb-5 bg-orange-100 border-l-4 border-orange-500 text-orange-700 p-4"
+                      role="alert"
+                    >
+                      <p>{message}</p>
+                    </div>
+                  )}
+
+                  <label className="text-text-gray" htmlFor="password">
+                    Password
+                  </label>
                   <input
                     id="password"
                     name="password"
                     type="password"
                     value={password}
                     onChange={(e) => setPassword(e.target.value)}
+                    className="rounded-lg bg-input-green mt-3 mb-2 p-5 focus:outline-none focus:ring focus:ring-text-green"
+                  />
+                  <p className="mt-2 text-grad-dark text-sm mb-10">
+                    The password must be at least 6 characters and contain at
+                    least one uppercase character, one number, and one special
+                    character.
+                  </p>
+                  <label className="text-text-gray" htmlFor="confirmPassword">
+                    Confirm Password
+                  </label>
+                  <input
+                    id="confirmPassword"
+                    name="confirmPassword"
+                    type="password"
+                    value={confirmPassword}
+                    onChange={(e) => setConfirmPassword(e.target.value)}
                     className="rounded-lg bg-input-green mt-3 mb-2 p-5 focus:outline-none focus:ring focus:ring-text-green"
                   />
                   <p className="mt-2 text-grad-dark text-sm mb-10">
@@ -295,7 +346,7 @@ const Register = () => {
                       id="check"
                       className="form-checkbox text-text-green bg-text-green focus:ring-blue-500 mr-3 "
                     />
-                    <label htmlFor="check">
+                    <label className="text-text-gray" htmlFor="check">
                       I agree to platforms{" "}
                       <Link>
                         <span className="text-text-green cursor-pointer hover:underline">
@@ -314,7 +365,7 @@ const Register = () => {
 
                   <button
                     disabled={loading ? true : false}
-                    className={` bg-gradient-to-r from-grad-light to-grad-dark text-white py-5 rounded-xl text-xl active:ring focus:ring reen mt-3 mb-10 p-5 focus:outline-none focus:ring-text-green hover:from-grad-dark hover:to-grad-dark transition-500 transition-all font-bold`}
+                    className={` bg-gradient-to-r from-grad-light to-grad-dark text-white py-5 rounded-xl text-xl active:ring focus:ring reen mt-3 mb-10 p-5 focus:outline-none focus:ring-text-green hover:from-grad-dark hover:to-grad-dark transition-500 transition-all font-bold w-[20rem]`}
                   >
                     {loading ? (
                       <img
@@ -323,7 +374,10 @@ const Register = () => {
                         className="w-[40px] mx-auto"
                       />
                     ) : (
-                      "Register"
+                      <div className="flex items-center justify-center">
+                        <RiHeartAddFill className="text-3xl mr-[1rem]" /> Create
+                        Account
+                      </div>
                     )}
                   </button>
                 </form>
@@ -345,7 +399,7 @@ const Register = () => {
 
 export default Register;
 
-/* <label htmlFor="upload">
+/* <label className="text-text-gray" htmlFor="upload">
                 <div className=" flex justify-between mb-3">
                   <p>Attach Documents</p>
                   <p>PDF and docx only</p>

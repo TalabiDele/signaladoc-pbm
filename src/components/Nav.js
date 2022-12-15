@@ -16,27 +16,11 @@ const Nav = () => {
   console.log(location.pathname);
 
   return (
-    <div className="fixed right-0 left-0 mt-[1rem]">
-      <div className="  ">
-        <div className=" flex items-center justify-between w-[95%] mx-auto">
-          <img src={logo} alt="" />
-          <h1 className="text-xl font-medium">Welcome to your dashboard</h1>
-          <div className=" flex w-2/4">
-            <div className=" relative w-4/5">
-              <input
-                type="text"
-                placeholder="Search patient profile "
-                className="bg-bg-green rounded-md px-5 py-3 w-full focus:ring focus:outline-none focus:ring-text-green"
-              />
-              <HiOutlineSearch className=" absolute right-3 top-2 text-3xl text-[#4F4F4F]" />
-            </div>
-            <VscBell className=" text-5xl bg-bg-green p-2 rounded-md ml-4" />
-          </div>
-          <img src={userImg} alt="" className="w-[3rem]" />
+    <div className="fixed right-0 left-0 flex">
+      <div className=" bg-white h-[100vh] w-[20rem] pt-2">
+        <div className=" py-5 pl-[3rem]">
+          <img src={logo} alt="" className="w-[10rem]  bg-white" />
         </div>
-      </div>
-
-      <div className=" bg-white h-[100vh] w-[20rem] pt-10">
         <div
           className={` ${
             location.pathname === "/dashboard"
@@ -162,6 +146,33 @@ const Nav = () => {
             />{" "}
             <p>Settings</p>
           </Link>
+        </div>
+
+        <div className={` mt-[3rem] py-5`}>
+          <Link
+            // to="/settings"
+            className={` text-text-red flex items-center w-[100%] ml-[3rem] text-xl`}
+          >
+            <MdLogout className={` text-3xl mr-[2rem]`} /> <p>Logout</p>
+          </Link>
+        </div>
+      </div>
+
+      <div className="  w-[100%] mt-[2rem]">
+        <div className=" flex items-center justify-between w-[95%] mx-auto">
+          <h1 className="text-xl font-medium">Welcome to your dashboard</h1>
+          <div className=" flex w-2/4">
+            <div className=" relative w-4/5">
+              <input
+                type="text"
+                placeholder="Search patient profile "
+                className="bg-white shadow-sm rounded-md px-5 py-3 w-full focus:ring focus:outline-none focus:ring-text-green"
+              />
+              <HiOutlineSearch className=" absolute right-3 top-2 text-3xl text-[#4F4F4F]" />
+            </div>
+            <VscBell className=" text-5xl bg-bg-green p-2 rounded-md ml-4" />
+          </div>
+          <img src={userImg} alt="" className="w-[3rem]" />
         </div>
       </div>
     </div>

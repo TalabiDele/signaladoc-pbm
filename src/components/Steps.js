@@ -18,28 +18,74 @@ const Steps = () => {
 
   return (
     <div>
-      <div className=" mb-10 flex justify-between w-[35%] mx-auto">
-        <div
-          className={`${
-            isEmail || isCode || isUserDetails
-              ? "bg-gradient-to-r from-grad-light to-grad-light"
-              : "bg-gradient-to-r from-white to-white text-grad-light opacity-50"
-          }  text-white font-medium text-xl h-[4px] rounded-3xl w-[5rem] text-center `}
-        ></div>
-        <div
-          className={`${
-            isCode || isUserDetails
-              ? "bg-gradient-to-r from-grad-light to-grad-light"
-              : "bg-gradient-to-r from-white to-white text-grad-light opacity-50"
-          }  text-white font-medium text-xl h-[4px] rounded-3xl w-[5rem] text-center `}
-        ></div>
-        <div
-          className={`${
-            isUserDetails
-              ? "bg-gradient-to-r from-grad-light to-grad-light"
-              : "bg-gradient-to-r from-white to-white text-grad-light opacity-50"
-          }  text-white font-medium text-xl h-[4px] rounded-3xl w-[5rem] text-center `}
-        ></div>
+      <div className=" mb-10 flex justify-between w-[50%] mx-auto">
+        <div className=" text-center">
+          <p
+            className={` ${
+              isEmail || isCode || isUserDetails
+                ? "text-grad-light"
+                : "text-input-green"
+            } font-bold text-xl `}
+          >
+            1
+          </p>
+          <div
+            className={`${
+              isEmail || isCode || isUserDetails
+                ? "bg-gradient-to-r from-grad-light to-grad-light"
+                : "bg-gradient-to-r from-white to-white text-grad-light opacity-50"
+            }  text-white font-medium text-xl h-[4px] rounded-3xl w-[5rem] text-center `}
+          ></div>
+        </div>
+        <div className="text-center">
+          <p
+            className={` ${
+              isCode || isUserDetails ? "text-grad-light" : "text-input-green"
+            } font-bold text-xl `}
+          >
+            2
+          </p>
+          <div
+            className={`${
+              isCode || isUserDetails
+                ? "bg-gradient-to-r from-grad-light to-grad-light"
+                : "bg-gradient-to-r from-white to-white text-grad-light opacity-50"
+            }  text-white font-medium text-xl h-[4px] rounded-3xl w-[5rem] text-center `}
+          ></div>
+        </div>
+
+        <div className="text-center">
+          <p
+            className={` ${
+              isUserDetails ? "text-grad-light" : "text-input-green"
+            } font-bold text-xl `}
+          >
+            3
+          </p>
+          <div
+            className={`${
+              isUserDetails
+                ? "bg-gradient-to-r from-grad-light to-grad-light"
+                : "bg-gradient-to-r from-white to-white text-grad-light opacity-50"
+            }  text-white font-medium text-xl h-[4px] rounded-3xl w-[5rem] text-center `}
+          ></div>
+        </div>
+        <div className="text-center">
+          <p
+            className={` ${
+              isUserDetails ? "text-grad-light" : "text-input-green"
+            } font-bold text-xl `}
+          >
+            4
+          </p>
+          <div
+            className={`${
+              isUserDetails
+                ? "bg-gradient-to-r from-grad-light to-grad-light"
+                : "bg-gradient-to-r from-white to-white text-grad-light opacity-50"
+            }  text-white font-medium text-xl h-[4px] rounded-3xl w-[5rem] text-center `}
+          ></div>
+        </div>
       </div>
     </div>
   );

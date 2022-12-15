@@ -36,12 +36,20 @@ function App() {
         <Nav />
       )}
       <Routes>
-        <Route
-          path="/signin"
-          element={
-            user !== null ? <Navigate to="/dashboard" replace /> : <Signin />
-          }
-        />
+        <Route path="/">
+          {/* <Route
+            path="/"
+            element={
+              user !== null ? <Navigate to="/dashboard" replace /> : <Signin />
+            }
+          /> */}
+          <Route
+            path="/signin"
+            element={
+              user !== null ? <Navigate to="/dashboard" replace /> : <Signin />
+            }
+          />
+        </Route>
         <Route
           path="/signup"
           element={
