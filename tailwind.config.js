@@ -14,6 +14,8 @@ module.exports = {
         "bg-light": "#F6FBF6",
         "text-red": "#EB5757",
         "text-gray": "#4F4F4F",
+        "text-blue": "#1665D2",
+        "text-orange": "#F2994A",
       },
     },
   },

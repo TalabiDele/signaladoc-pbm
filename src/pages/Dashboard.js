@@ -1,10 +1,12 @@
 import React from "react";
-import Dash from "../components/Dash";
+import DashCard from "../components/DashCard";
+import Orders from "../components/Orders";
 
 const Dashboard = () => {
   return (
-    <div>
-      <Dash />
+    <div className=" relative ml-[20rem] pt-[7rem] mr-[2rem]">
+      <DashCard />
+      <Orders />
     </div>
   );
 };
