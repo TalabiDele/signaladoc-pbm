@@ -7,7 +7,7 @@ import cart from "../imgs/cart.png";
 const DashCard = () => {
   return (
     <div>
-      <div className=" flex justify-between w-full">
+      <div className=" flex justify-between w-full text-center">
         <div className=" shadow-lg px-[2rem] py-[4rem] w-[20%] bg-white rounded-xl grid justify-items-center">
           <p className=" text-btn-green text-xl mb-2">
             Create a patient profile

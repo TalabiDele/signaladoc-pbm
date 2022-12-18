@@ -4,7 +4,7 @@ import Orders from "../components/Orders";
 
 const Dashboard = () => {
   return (
-    <div className=" relative ml-[20rem] pt-[7rem] mr-[2rem]">
+    <div className=" relative ml-[20rem] py-[7rem] mr-[2rem]">
       <DashCard />
       <Orders />
     </div>

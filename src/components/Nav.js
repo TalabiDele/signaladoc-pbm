@@ -14,7 +14,7 @@ const Nav = () => {
   const location = useLocation();
 
   return (
-    <div className="fixed right-0 left-0 flex">
+    <div className="fixed right-0 left-0 flex z-40">
       <div className=" bg-white h-[100vh] w-[20rem] pt-2">
         <div className=" py-5 pl-[3rem]">
           <img src={logo} alt="" className="w-[10rem]  bg-white" />
@@ -156,7 +156,7 @@ const Nav = () => {
         </div>
       </div>
 
-      <div className="  w-[100%] mt-[2rem]">
+      <div className="  w-[100%] py-[2rem] bg-bg-light h-[6rem]">
         <div className=" flex items-center justify-between w-[95%] mx-auto">
           <h1 className="text-xl font-medium">Welcome to your dashboard</h1>
           <div className=" flex w-2/4">
