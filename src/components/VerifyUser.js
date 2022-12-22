@@ -1,10 +1,13 @@
 import React, { useContext, useState } from "react";
+import { BiHide, BiShow } from "react-icons/bi";
+import { Link } from "react-router-dom";
 import AuthContext from "../Context/AuthContext";
 import btnLoader from "../imgs/loading.gif";
 
 const VerifyUser = () => {
   //   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [show, setShow] = useState(false);
 
   const {
     validateUser,
@@ -20,6 +23,10 @@ const VerifyUser = () => {
     e.preventDefault();
 
     validateUser({ email, password });
+  };
+
+  const handleShow = () => {
+    setShow(!show);
   };
 
   return (
@@ -52,14 +59,34 @@ const VerifyUser = () => {
           </p>
 
           <label htmlFor="password">Password</label>
-          <input
-            id="password"
-            name="password"
-            type="password"
-            value={password}
-            onChange={(e) => setPassword(e.target.value)}
-            className="peer rounded-lg bg-input-green mt-3 p-5 focus:outline-none focus:ring focus:ring-text-green mb-10"
-          />
+          <div className=" relative w-full">
+            {show ? (
+              <BiHide
+                onClick={handleShow}
+                className=" absolute text-xl right-[1rem] top-[2rem]"
+              />
+            ) : (
+              <BiShow
+                onClick={handleShow}
+                className=" absolute text-xl right-[1rem] top-[2rem]"
+              />
+            )}
+            <input
+              id="password"
+              name="password"
+              type={show ? "text" : "password"}
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
+              className="peer rounded-lg bg-input-green mt-3 p-5 focus:outline-none focus:ring focus:ring-text-green mb-2 w-full"
+            />
+          </div>
+          <Link
+            to="/forgot-password"
+            className=" text-right mb-10 font-bold text-lg text-text-green"
+          >
+            Forgot Password?
+          </Link>
+
           <button
             disabled={loading ? true : false}
             className={` bg-gradient-to-r from-grad-light to-grad-dark text-white py-5 rounded-xl text-xl active:ring focus:ring reen mt-3 mb-10 p-5 focus:outline-none focus:ring-text-green hover:from-grad-dark hover:to-grad-dark transition-500 transition-all font-bold`}
