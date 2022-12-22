@@ -4,11 +4,13 @@ import AccountNav from "./AccountNav";
 import { Link } from "react-router-dom";
 import { FcGoogle } from "react-icons/fc";
 import btnLoader from "../imgs/loading.gif";
+import { BiHide, BiShow } from "react-icons/bi";
 
 const Login = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [emailEmpty, setEmailEmpty] = useState(false);
+  const [show, setShow] = useState("");
   const [passwordEmpty, setPasswordEmpty] = useState(false);
 
   const { login, message, loading, error, approved, setMessage, setError } =
@@ -63,6 +65,10 @@ const Login = () => {
       setEmailEmpty(false);
       login({ email, password });
     }
+  };
+
+  const handleShow = () => {
+    setShow(!show);
   };
 
   return (
@@ -122,20 +128,33 @@ const Login = () => {
               }`}
             />
             <label htmlFor="password">Password</label>
-            <input
-              type="password"
-              value={password}
-              onChange={(e) => setPassword(e.target.value)}
-              className={`rounded-lg bg-input-green mt-3 mb-3 p-5 focus:outline-none focus:ring focus:ring-text-green ${
-                passwordEmpty
-                  ? "border-[2px] border-orange-700 bg-orange-100"
-                  : ""
-              }`}
-            />
+            <div className=" relative w-full">
+              {show ? (
+                <BiHide
+                  onClick={handleShow}
+                  className=" absolute text-xl right-[1rem] top-[2rem]"
+                />
+              ) : (
+                <BiShow
+                  onClick={handleShow}
+                  className=" absolute text-xl right-[1rem] top-[2rem]"
+                />
+              )}
+              <input
+                type={show ? "text" : "password"}
+                value={password}
+                onChange={(e) => setPassword(e.target.value)}
+                className={`rounded-lg bg-input-green mt-3 mb-3 p-5 focus:outline-none focus:ring focus:ring-text-green w-full ${
+                  passwordEmpty
+                    ? "border-[2px] border-orange-700 bg-orange-100"
+                    : ""
+                }`}
+              />
+            </div>
 
             <Link
               to="/forgot-password"
-              className=" text-right mb-10 font-bold text-lg"
+              className=" text-right mb-10 font-bold text-lg text-text-green"
             >
               Forgot Password?
             </Link>

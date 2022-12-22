@@ -5,11 +5,13 @@ import { Link } from "react-router-dom";
 import { FcGoogle } from "react-icons/fc";
 import btnLoader from "../imgs/loading.gif";
 import { useNavigate } from "react-router-dom";
+import { BiHide, BiShow } from "react-icons/bi";
 
 const Forgot = () => {
   const [emailEmpty, setEmailEmpty] = useState(false);
   const [code, setCode] = useState(null);
   const [password, setPassword] = useState("");
+  const [show, setShow] = useState("");
 
   const history = useNavigate();
 
@@ -95,6 +97,10 @@ const Forgot = () => {
     e.preventDefault();
 
     resetPassword({ password, userId, history });
+  };
+
+  const handleShow = () => {
+    setShow(!show);
   };
 
   return (
@@ -195,14 +201,27 @@ const Forgot = () => {
               Reset <span className="text-text-green">Password</span>
             </h1>
             <label htmlFor="password">Enter Password</label>
-            <input
-              id="password"
-              name="password"
-              type="password"
-              value={password}
-              onChange={(e) => setPassword(e.target.value)}
-              className="rounded-lg bg-input-green mt-3 mb-10 p-5 focus:outline-none focus:ring focus:ring-text-green"
-            />
+            <div className=" relative w-full">
+              {show ? (
+                <BiHide
+                  onClick={handleShow}
+                  className=" absolute text-xl right-[1rem] top-[2rem]"
+                />
+              ) : (
+                <BiShow
+                  onClick={handleShow}
+                  className=" absolute text-xl right-[1rem] top-[2rem]"
+                />
+              )}
+              <input
+                id="password"
+                name="password"
+                type={show ? "text" : "password"}
+                value={password}
+                onChange={(e) => setPassword(e.target.value)}
+                className="rounded-lg bg-input-green mt-3 mb-10 p-5 focus:outline-none focus:ring focus:ring-text-green w-full"
+              />
+            </div>
             <div className="flex w-full">
               <button
                 onClick={(e) => handleReset(e)}
