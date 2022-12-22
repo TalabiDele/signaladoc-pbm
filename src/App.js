@@ -30,7 +30,8 @@ function App() {
     <div className="App">
       {location.pathname === "/signup" ||
       location.pathname === "/signin" ||
-      location.pathname === "/forgot-password" ? (
+      location.pathname === "/forgot-password" ||
+      location.pathname === "/add_pharmacy" ? (
         <></>
       ) : (
         <Nav />

@@ -8,12 +8,15 @@ import btnLoader from "../imgs/loading.gif";
 import VerifyUser from "./VerifyUser";
 import Pharmacy from "./Pharmacy";
 import { RiHeartAddFill } from "react-icons/ri";
+import { BiHide, BiShow } from "react-icons/bi";
 
 const Register = () => {
   const [code, setCode] = useState(null);
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
   const [passError, setPassError] = useState(false);
+  const [passShow, setPassShow] = useState(false);
+  const [confirmShow, setConfirmShow] = useState(false);
   // const [docs, setDocs] = useState({});
 
   const {
@@ -126,6 +129,18 @@ const Register = () => {
     codeResend({ userId });
   };
 
+  const handlePassShow = () => {
+    setPassShow(!passShow);
+
+    console.log(passShow);
+  };
+
+  const handleConfirmShow = () => {
+    setConfirmShow(!confirmShow);
+
+    console.log(confirmShow);
+  };
+
   return (
     <div className=" w-full flex fixed">
       <AccountNav />
@@ -136,7 +151,7 @@ const Register = () => {
           </h1>
           <p className="mb-5 font-medium">
             Already have an account?{" "}
-            <Link to="/signin" className=" text-grad-dark">
+            <Link to="/signin" className=" text-text-green">
               Login
             </Link>{" "}
           </p>
@@ -309,14 +324,27 @@ const Register = () => {
                   <label className="text-text-gray" htmlFor="password">
                     Password
                   </label>
-                  <input
-                    id="password"
-                    name="password"
-                    type="password"
-                    value={password}
-                    onChange={(e) => setPassword(e.target.value)}
-                    className="rounded-lg bg-input-green mt-3 mb-2 p-5 focus:outline-none focus:ring focus:ring-text-green"
-                  />
+                  <div className=" relative w-full">
+                    {passShow ? (
+                      <BiHide
+                        onClick={handlePassShow}
+                        className=" absolute text-xl right-[1rem] top-[2rem]"
+                      />
+                    ) : (
+                      <BiShow
+                        onClick={handlePassShow}
+                        className=" absolute text-xl right-[1rem] top-[2rem]"
+                      />
+                    )}
+                    <input
+                      id="password"
+                      name="password"
+                      type={passShow ? "text" : "password"}
+                      value={password}
+                      onChange={(e) => setPassword(e.target.value)}
+                      className="rounded-lg bg-input-green mt-3 mb-2 p-5 focus:outline-none focus:ring focus:ring-text-green w-full"
+                    />
+                  </div>
                   <p className="mt-2 text-grad-dark text-sm mb-10">
                     The password must be at least 6 characters and contain at
                     least one uppercase character, one number, and one special
@@ -325,14 +353,27 @@ const Register = () => {
                   <label className="text-text-gray" htmlFor="confirmPassword">
                     Confirm Password
                   </label>
-                  <input
-                    id="confirmPassword"
-                    name="confirmPassword"
-                    type="password"
-                    value={confirmPassword}
-                    onChange={(e) => setConfirmPassword(e.target.value)}
-                    className="rounded-lg bg-input-green mt-3 mb-2 p-5 focus:outline-none focus:ring focus:ring-text-green"
-                  />
+                  <div className=" relative w-full">
+                    {confirmShow ? (
+                      <BiHide
+                        onClick={handleConfirmShow}
+                        className=" absolute text-xl right-[1rem] top-[2rem]"
+                      />
+                    ) : (
+                      <BiShow
+                        onClick={handleConfirmShow}
+                        className=" absolute text-xl right-[1rem] top-[2rem]"
+                      />
+                    )}
+                    <input
+                      id="confirmPassword"
+                      name="confirmPassword"
+                      type={confirmShow ? "text" : "password"}
+                      value={confirmPassword}
+                      onChange={(e) => setConfirmPassword(e.target.value)}
+                      className="rounded-lg bg-input-green mt-3 mb-2 p-5 focus:outline-none focus:ring focus:ring-text-green w-full"
+                    />
+                  </div>
                   <p className="mt-2 text-grad-dark text-sm mb-10">
                     The password must be at least 6 characters and contain at
                     least one uppercase character, one number, and one special

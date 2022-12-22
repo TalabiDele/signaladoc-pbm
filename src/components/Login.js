@@ -70,11 +70,14 @@ const Login = () => {
       <AccountNav />
       <div className=" bg-bg-green w-2/4 ">
         <div className="w-[80%] mx-auto">
-          <h1 className="font-bold text-3xl mt-[2rem] mb-5">
+          <h1 className="font-bold text-3xl mt-[2rem] mb-5 ">
             Log <span className="text-text-green">In!</span>
           </h1>
           <p className="mb-5 font-medium">
-            Don’t have an account? <Link to="/signup">Sign Up</Link>{" "}
+            Don’t have an account?{" "}
+            <Link to="/signup" className="text-text-green">
+              Sign Up
+            </Link>{" "}
           </p>
 
           <button className="flex justify-center items-center bg-white shadow-lg px-5 py-3 rounded-xl w-full text-xl mb-10">
