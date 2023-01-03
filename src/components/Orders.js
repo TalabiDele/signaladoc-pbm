@@ -53,7 +53,7 @@ const Orders = () => {
                 <p className=" cursor-pointer">
                   <HiOutlineDownload />
                 </p>
-                <p className=" bg-text-orange p-4 rounded-lg text-white">
+                <p className=" text-text-orange font-bold p-4 rounded-lg ">
                   Pending
                 </p>
               </div>
@@ -68,7 +68,7 @@ const Orders = () => {
                 <p className=" cursor-pointer">
                   <HiOutlineDownload />
                 </p>
-                <p className=" bg-text-orange p-4 rounded-lg text-white">
+                <p className=" text-text-orange font-bold p-4 rounded-lg ">
                   Pending
                 </p>
               </div>
@@ -83,7 +83,7 @@ const Orders = () => {
                 <p className=" cursor-pointer">
                   <HiOutlineDownload />
                 </p>
-                <p className=" bg-text-orange p-4 rounded-lg text-white">
+                <p className=" text-text-orange font-bold p-4 rounded-lg ">
                   Pending
                 </p>
               </div>
@@ -98,7 +98,7 @@ const Orders = () => {
                 <p className=" cursor-pointer">
                   <HiOutlineDownload />
                 </p>
-                <p className=" bg-text-orange p-4 rounded-lg text-white">
+                <p className=" text-text-orange font-bold p-4 rounded-lg ">
                   Pending
                 </p>
               </div>

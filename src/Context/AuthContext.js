@@ -25,6 +25,9 @@ export const AuthProvider = ({ children }) => {
   const [passError, setPassError] = useState(false);
   const [isReset, setIsReset] = useState(false);
   const [userLogged, setUserLogged] = useState();
+  const [isConsult, setIsConsult] = useState(false);
+  const [isSale, setIsSale] = useState(false);
+  const [isInventory, setIsInventory] = useState(false);
   // const []
 
   useEffect(() => {}, []);
@@ -125,7 +128,6 @@ export const AuthProvider = ({ children }) => {
 
     if (res.ok) {
       setUserLogged(data.user);
-      // setUser(data.user);
       setUserId(data.user.id);
       setApproved(true);
       setIsPharmacy(true);
@@ -477,6 +479,12 @@ export const AuthProvider = ({ children }) => {
         isReset,
         setIsReset,
         resetPassword,
+        isConsult,
+        setIsConsult,
+        isSale,
+        setIsSale,
+        isInventory,
+        setIsInventory,
       }}
     >
       {children}

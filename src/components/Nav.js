@@ -14,7 +14,7 @@ const Nav = () => {
   const location = useLocation();
 
   return (
-    <div className="fixed right-0 left-0 flex z-40">
+    <div className="fixed right-0 left-0 flex bottom-0">
       <div className=" bg-white h-[100vh] w-[20rem] pt-2">
         <div className=" py-5 pl-[3rem]">
           <img src={logo} alt="" className="w-[10rem]  bg-white" />
