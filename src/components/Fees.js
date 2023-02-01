@@ -34,7 +34,7 @@ const Fees = () => {
 
   return (
     <div>
-      <div className=" flex">
+      <div className=" flex mt-[2rem]">
         <img src={logo} alt="Pharmacy logo" className=" fixed" />
 
         <div className=" w-full mx-auto">

@@ -16,7 +16,7 @@ export const AuthProvider = ({ children }) => {
   const [isCode, setIsCode] = useState(false);
   const [isUserDetails, setIsUserDetails] = useState(false);
   const [isPharmacy, setIsPharmacy] = useState(false);
-  const [isFee, setIsFee] = useState(true);
+  const [isFee, setIsFee] = useState(false);
   const [isBranch, setIsBranch] = useState(false);
   const [userExists, setUserExists] = useState(false);
   const [error, setError] = useState("");
@@ -136,6 +136,8 @@ export const AuthProvider = ({ children }) => {
       setUserId(data.user.id);
       setApproved(true);
       setIsFee(true);
+      setIsUserDetails(false);
+      setIsEmail(false);
       setMessage("Account created successfully!");
       setTimeout(() => {
         setApproved(false);

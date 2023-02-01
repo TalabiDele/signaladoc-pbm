@@ -6,7 +6,7 @@ const Plans = () => {
 
   return (
     <div>
-      <div className=" mb-[5rem] flex justify-between items-start">
+      <div className=" flex justify-between items-start">
         <div className=" shadow-lg w-[20rem] grid rounded">
           <p className=" text-center text-white bg-text-green rounded py-[0.5rem] text-3xl">
             Basic

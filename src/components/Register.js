@@ -154,8 +154,7 @@ const Register = () => {
         }
       >
         <div className="w-[80%] mx-auto">
-          {!isFee &
-          (
+          {!isFee && (
             <>
               <h1 className="font-bold text-3xl mt-[2rem] mb-5">
                 Sign <span className="text-text-green">Up!</span>
@@ -203,7 +202,7 @@ const Register = () => {
                 </div>
               )}
 
-              {/* {isEmail && (
+              {isEmail && !isFee && (
                 <form action="" className="grid" onSubmit={verifyEmail}>
                   <div className="flex justify-between text-text-gray">
                     <label htmlFor="email">Enter Email for Verification</label>
@@ -235,7 +234,7 @@ const Register = () => {
                     )}
                   </button>
                 </form>
-              )} */}
+              )}
 
               {isCode && (
                 <div action="" className="grid">
