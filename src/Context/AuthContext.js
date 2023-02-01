@@ -16,6 +16,8 @@ export const AuthProvider = ({ children }) => {
   const [isCode, setIsCode] = useState(false);
   const [isUserDetails, setIsUserDetails] = useState(false);
   const [isPharmacy, setIsPharmacy] = useState(false);
+  const [isFee, setIsFee] = useState(true);
+  const [isBranch, setIsBranch] = useState(false);
   const [userExists, setUserExists] = useState(false);
   const [error, setError] = useState("");
   const [loading, setLoading] = useState(false);
@@ -28,6 +30,9 @@ export const AuthProvider = ({ children }) => {
   const [isConsult, setIsConsult] = useState(false);
   const [isSale, setIsSale] = useState(false);
   const [isInventory, setIsInventory] = useState(false);
+  const [isMonthly, setIsMonthly] = useState(true);
+  const [isQuarterly, setIsQuarterly] = useState(false);
+  const [isYearly, setIsYearly] = useState(false);
   // const []
 
   useEffect(() => {}, []);
@@ -130,7 +135,7 @@ export const AuthProvider = ({ children }) => {
       setUserLogged(data.user);
       setUserId(data.user.id);
       setApproved(true);
-      setIsPharmacy(true);
+      setIsFee(true);
       setMessage("Account created successfully!");
       setTimeout(() => {
         setApproved(false);
@@ -485,6 +490,14 @@ export const AuthProvider = ({ children }) => {
         setIsSale,
         isInventory,
         setIsInventory,
+        isFee,
+        setIsFee,
+        isMonthly,
+        setIsMonthly,
+        isYearly,
+        setIsYearly,
+        isQuarterly,
+        setIsQuarterly,
       }}
     >
       {children}

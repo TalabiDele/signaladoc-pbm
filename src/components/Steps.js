@@ -2,8 +2,16 @@ import React, { useContext, useEffect } from "react";
 import AuthContext from "../Context/AuthContext";
 
 const Steps = () => {
-  const { isEmail, setIsEmail, isCode, isUserDetails } =
-    useContext(AuthContext);
+  const {
+    isEmail,
+    setIsEmail,
+    isCode,
+    isUserDetails,
+    isFee,
+    setIsFee,
+    isPharmacy,
+    isBranch,
+  } = useContext(AuthContext);
 
   useEffect(() => {
     setIsEmail(true);
@@ -34,14 +42,14 @@ const Steps = () => {
         <div className="text-center">
           <p
             className={` ${
-              isCode || isUserDetails ? "text-grad-light" : "text-input-green"
+              isCode || isFee ? "text-grad-light" : "text-input-green"
             } font-bold text-xl `}
           >
             2
           </p>
           <div
             className={`${
-              isCode || isUserDetails
+              isCode || isFee
                 ? "bg-gradient-to-r from-grad-light to-grad-light"
                 : "bg-gradient-to-r from-white to-white text-grad-light opacity-50"
             }  text-white font-medium text-xl h-[4px] rounded-3xl w-[5rem] text-center `}
@@ -51,14 +59,14 @@ const Steps = () => {
         <div className="text-center">
           <p
             className={` ${
-              isUserDetails ? "text-grad-light" : "text-input-green"
+              isPharmacy ? "text-grad-light" : "text-input-green"
             } font-bold text-xl `}
           >
             3
           </p>
           <div
             className={`${
-              isUserDetails
+              isPharmacy
                 ? "bg-gradient-to-r from-grad-light to-grad-light"
                 : "bg-gradient-to-r from-white to-white text-grad-light opacity-50"
             }  text-white font-medium text-xl h-[4px] rounded-3xl w-[5rem] text-center `}
@@ -67,14 +75,14 @@ const Steps = () => {
         <div className="text-center">
           <p
             className={` ${
-              isUserDetails ? "text-grad-light" : "text-input-green"
+              isBranch ? "text-grad-light" : "text-input-green"
             } font-bold text-xl `}
           >
             4
           </p>
           <div
             className={`${
-              isUserDetails
+              isBranch
                 ? "bg-gradient-to-r from-grad-light to-grad-light"
                 : "bg-gradient-to-r from-white to-white text-grad-light opacity-50"
             }  text-white font-medium text-xl h-[4px] rounded-3xl w-[5rem] text-center `}

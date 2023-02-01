@@ -9,6 +9,7 @@ import VerifyUser from "./VerifyUser";
 import Pharmacy from "./Pharmacy";
 import { RiHeartAddFill } from "react-icons/ri";
 import { BiHide, BiShow } from "react-icons/bi";
+import Fees from "./Fees";
 
 const Register = () => {
   const [code, setCode] = useState(null);
@@ -49,6 +50,7 @@ const Register = () => {
     userExists,
     codeResend,
     isPharmacy,
+    isFee,
   } = useContext(AuthContext);
 
   const verifyEmail = (e) => {
@@ -142,32 +144,43 @@ const Register = () => {
   };
 
   return (
-    <div className=" w-full flex fixed">
-      <AccountNav />
-      <div className=" bg-bg-green w-2/4 h-[100vh] overflow-y-scroll scrollbar-thumb-text-green scrollbar-thumb-rounded-lg scrollbar-thin scrollbar-track-gray-100">
+    <div className={!isFee ? " w-full flex fixed" : ""}>
+      {!isFee && <AccountNav />}
+      <div
+        className={
+          !isFee
+            ? " bg-bg-green w-2/4 h-[100vh] overflow-y-scroll scrollbar-thumb-text-green scrollbar-thumb-rounded-lg scrollbar-thin scrollbar-track-gray-100"
+            : ""
+        }
+      >
         <div className="w-[80%] mx-auto">
-          <h1 className="font-bold text-3xl mt-[2rem] mb-5">
-            Sign <span className="text-text-green">Up!</span>
-          </h1>
-          <p className="mb-5 font-medium">
-            Already have an account?{" "}
-            <Link to="/signin" className=" text-text-green">
-              Login
-            </Link>{" "}
-          </p>
+          {!isFee &
+          (
+            <>
+              <h1 className="font-bold text-3xl mt-[2rem] mb-5">
+                Sign <span className="text-text-green">Up!</span>
+              </h1>
+              <p className="mb-5 font-medium">
+                Already have an account?{" "}
+                <Link to="/signin" className=" text-text-green">
+                  Login
+                </Link>{" "}
+              </p>
 
-          <button className="flex justify-center items-center bg-white shadow-lg px-5 py-3 rounded-xl w-full text-xl mb-10">
-            <FcGoogle className="text-5xl mr-3" /> Sign up with Google
-          </button>
-          <div className="flex items-center justify-between mb-10">
-            <div className="h-[1px] w-[300px] bg-text-green mr-4"> </div>{" "}
-            <p className="text-xl uppercase"> or </p>{" "}
-            <div className="h-[1px] w-[300px] bg-text-green ml-4"></div>
-          </div>
+              <button className="flex justify-center items-center bg-white shadow-lg px-5 py-3 rounded-xl w-full text-xl mb-10">
+                <FcGoogle className="text-5xl mr-3" /> Sign up with Google
+              </button>
+              <div className="flex items-center justify-between mb-10">
+                <div className="h-[1px] w-[300px] bg-text-green mr-4"> </div>{" "}
+                <p className="text-xl uppercase"> or </p>{" "}
+                <div className="h-[1px] w-[300px] bg-text-green ml-4"></div>
+              </div>
+            </>
+          )}
 
           {!userExists ? (
             <>
-              <Steps />
+              {!isFee && <Steps />}
               {error && message && (
                 <div
                   className="mb-5 bg-orange-100 border-l-4 border-orange-500 text-orange-700 p-4"
@@ -190,7 +203,7 @@ const Register = () => {
                 </div>
               )}
 
-              {isEmail && (
+              {/* {isEmail && (
                 <form action="" className="grid" onSubmit={verifyEmail}>
                   <div className="flex justify-between text-text-gray">
                     <label htmlFor="email">Enter Email for Verification</label>
@@ -222,7 +235,7 @@ const Register = () => {
                     )}
                   </button>
                 </form>
-              )}
+              )} */}
 
               {isCode && (
                 <div action="" className="grid">
@@ -423,6 +436,8 @@ const Register = () => {
                   </button>
                 </form>
               )}
+
+              {isFee && <Fees />}
             </>
           ) : (
             <>
