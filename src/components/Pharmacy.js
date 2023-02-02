@@ -160,9 +160,9 @@ const Pharmacy = () => {
   };
 
   return (
-    <div className=" w-full flex fixed">
-      <AccountNav />
-      <div className="bg-bg-green w-2/4 h-[100vh] overflow-y-scroll scrollbar-thumb-text-green scrollbar-thumb-rounded-lg scrollbar-thin scrollbar-track-gray-100 ">
+    <div className=" w-2/4 fixed top-0 right-0">
+      {/* <AccountNav /> */}
+      <div className="bg-bg-green w-full h-[100vh] overflow-y-scroll scrollbar-thumb-text-green scrollbar-thumb-rounded-lg scrollbar-thin scrollbar-track-gray-100 ">
         <div className="w-[80%] mx-auto">
           <div className="">
             <h1 className="font-bold text-3xl mt-[2rem] mb-5">

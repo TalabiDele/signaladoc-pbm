@@ -135,9 +135,9 @@ export const AuthProvider = ({ children }) => {
       setUserLogged(data.user);
       setUserId(data.user.id);
       setApproved(true);
-      setIsFee(true);
-      setIsUserDetails(false);
       setIsEmail(false);
+      setIsUserDetails(false);
+      setIsFee(true);
       setMessage("Account created successfully!");
       setTimeout(() => {
         setApproved(false);

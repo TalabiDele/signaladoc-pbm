@@ -24,7 +24,12 @@ const Steps = () => {
         <div className=" text-center">
           <p
             className={` ${
-              isEmail || isCode || isUserDetails
+              isEmail ||
+              isCode ||
+              isUserDetails ||
+              isFee ||
+              isPharmacy ||
+              isBranch
                 ? "text-grad-light"
                 : "text-input-green"
             } font-bold text-xl `}
@@ -33,7 +38,12 @@ const Steps = () => {
           </p>
           <div
             className={`${
-              isEmail || isCode || isUserDetails
+              isEmail ||
+              isCode ||
+              isUserDetails ||
+              isFee ||
+              isPharmacy ||
+              isBranch
                 ? "bg-gradient-to-r from-grad-light to-grad-light"
                 : "bg-gradient-to-r from-white to-white text-grad-light opacity-50"
             }  text-white font-medium text-xl h-[4px] rounded-3xl w-[5rem] text-center `}
@@ -42,14 +52,16 @@ const Steps = () => {
         <div className="text-center">
           <p
             className={` ${
-              isCode || isFee ? "text-grad-light" : "text-input-green"
+              isFee || isPharmacy || isBranch
+                ? "text-grad-light"
+                : "text-input-green"
             } font-bold text-xl `}
           >
             2
           </p>
           <div
             className={`${
-              isCode || isFee
+              isFee || isPharmacy || isBranch
                 ? "bg-gradient-to-r from-grad-light to-grad-light"
                 : "bg-gradient-to-r from-white to-white text-grad-light opacity-50"
             }  text-white font-medium text-xl h-[4px] rounded-3xl w-[5rem] text-center `}
@@ -59,14 +71,14 @@ const Steps = () => {
         <div className="text-center">
           <p
             className={` ${
-              isPharmacy ? "text-grad-light" : "text-input-green"
+              isPharmacy || isBranch ? "text-grad-light" : "text-input-green"
             } font-bold text-xl `}
           >
             3
           </p>
           <div
             className={`${
-              isPharmacy
+              isPharmacy || isBranch
                 ? "bg-gradient-to-r from-grad-light to-grad-light"
                 : "bg-gradient-to-r from-white to-white text-grad-light opacity-50"
             }  text-white font-medium text-xl h-[4px] rounded-3xl w-[5rem] text-center `}

@@ -145,7 +145,7 @@ const Register = () => {
 
   return (
     <div className={!isFee ? " w-full flex fixed" : ""}>
-      {!isFee && <AccountNav />}
+      {(!isFee || isPharmacy) && <AccountNav />}
       <div
         className={
           !isFee
@@ -436,7 +436,7 @@ const Register = () => {
                 </form>
               )}
 
-              {isFee && <Fees />}
+              {/* {isPharmacy && <Pharmacy />} */}
             </>
           ) : (
             <>
@@ -444,8 +444,9 @@ const Register = () => {
             </>
           )}
 
+          {isFee && <Fees />}
+
           {isPharmacy && <Pharmacy />}
-          {/*  */}
         </div>
       </div>
     </div>

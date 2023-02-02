@@ -2,7 +2,29 @@ import React, { useContext, useState } from "react";
 import AuthContext from "../Context/AuthContext";
 
 const Plans = () => {
-  const { isMonthly, isQuarterly, isYearly } = useContext(AuthContext);
+  const {
+    isMonthly,
+    setIsMonthly,
+    isQuarterly,
+    setIsQuarterly,
+    isYearly,
+    setIsYearly,
+    setIsPharmacy,
+    setIsFee,
+    setIsEmail,
+    isEmail,
+    isPharmacy,
+  } = useContext(AuthContext);
+
+  const handleNext = (e) => {
+    // e.preventDefault();
+    setIsEmail(false);
+    setIsFee(false);
+    setIsPharmacy(true);
+
+    console.log(isEmail);
+    console.log(isPharmacy);
+  };
 
   return (
     <div>
@@ -62,7 +84,10 @@ const Plans = () => {
             </li>
           </ul>
 
-          <button className=" bg-gradient-to-r from-grad-light to-grad-dark text-white py-3 mx-[2rem] rounded text-xl active:ring focus:ring reen mt-3 mb-10 focus:outline-none focus:ring-text-green hover:from-grad-dark hover:to-grad-dark transition-500 transition-all font-bold">
+          <button
+            className=" bg-gradient-to-r from-grad-light to-grad-dark text-white py-3 mx-[2rem] rounded text-xl active:ring focus:ring reen mt-3 mb-10 focus:outline-none focus:ring-text-green hover:from-grad-dark hover:to-grad-dark transition-500 transition-all font-bold"
+            onClick={handleNext}
+          >
             Choose Plan
           </button>
         </div>
@@ -103,7 +128,10 @@ const Plans = () => {
             </li>
           </ul>
 
-          <button className=" bg-gradient-to-r from-grad-light to-grad-dark text-white py-3 mx-[2rem] rounded text-xl active:ring focus:ring reen mt-3 mb-10 focus:outline-none focus:ring-text-green hover:from-grad-dark hover:to-grad-dark transition-500 transition-all font-bold">
+          <button
+            className=" bg-gradient-to-r from-grad-light to-grad-dark text-white py-3 mx-[2rem] rounded text-xl active:ring focus:ring reen mt-3 mb-10 focus:outline-none focus:ring-text-green hover:from-grad-dark hover:to-grad-dark transition-500 transition-all font-bold"
+            onClick={handleNext}
+          >
             Choose Plan
           </button>
         </div>
@@ -139,7 +167,10 @@ const Plans = () => {
             </li>
           </ul>
 
-          <button className=" bg-gradient-to-r from-grad-light to-grad-dark text-white py-3 mx-[2rem] rounded text-xl active:ring focus:ring reen mt-3 mb-10 focus:outline-none focus:ring-text-green hover:from-grad-dark hover:to-grad-dark transition-500 transition-all font-bold">
+          <button
+            className=" bg-gradient-to-r from-grad-light to-grad-dark text-white py-3 mx-[2rem] rounded text-xl active:ring focus:ring reen mt-3 mb-10 focus:outline-none focus:ring-text-green hover:from-grad-dark hover:to-grad-dark transition-500 transition-all font-bold"
+            onClick={handleNext}
+          >
             Choose Plan
           </button>
         </div>
@@ -153,7 +184,10 @@ const Plans = () => {
             plans? Please contact us for pricing
           </p>
 
-          <button className=" bg-gradient-to-r from-grad-light to-grad-dark text-white py-3 mx-[2rem] rounded text-xl active:ring focus:ring reen mt-3 mb-10 focus:outline-none focus:ring-text-green hover:from-grad-dark hover:to-grad-dark transition-500 transition-all font-bold">
+          <button
+            className=" bg-gradient-to-r from-grad-light to-grad-dark text-white py-3 mx-[2rem] rounded text-xl active:ring focus:ring reen mt-3 mb-10 focus:outline-none focus:ring-text-green hover:from-grad-dark hover:to-grad-dark transition-500 transition-all font-bold"
+            onClick={handleNext}
+          >
             Choose Plan
           </button>
         </div>
