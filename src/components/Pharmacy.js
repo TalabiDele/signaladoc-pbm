@@ -4,6 +4,7 @@ import btnLoader from "../imgs/loading.gif";
 import { AiOutlineCloudUpload } from "react-icons/ai";
 import axios from "axios";
 import AccountNav from "./AccountNav";
+import Steps from "./Steps";
 
 const Pharmacy = () => {
   const [name, setName] = useState("");
@@ -160,13 +161,14 @@ const Pharmacy = () => {
   };
 
   return (
-    <div className=" w-2/4 fixed top-0 right-0">
+    <div className=" w-2/4 fixed top-0 right-0 bg-bg-green pt-[4rem] h-[100vh] overflow-y-scroll scrollbar-thumb-text-green scrollbar-thumb-rounded-lg scrollbar-thin scrollbar-track-gray-100">
       {/* <AccountNav /> */}
-      <div className="bg-bg-green w-full h-[100vh] overflow-y-scroll scrollbar-thumb-text-green scrollbar-thumb-rounded-lg scrollbar-thin scrollbar-track-gray-100 ">
+      <Steps />
+      <div className="bg-bg-green w-full  ">
         <div className="w-[80%] mx-auto">
           <div className="">
-            <h1 className="font-bold text-3xl mt-[2rem] mb-5">
-              Create <span className="text-text-green">Pharmacy</span>
+            <h1 className=" text-3xl mt-[2rem] mb-5">
+              Create Pharmacy Account
             </h1>
 
             {error && message && (
